@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seu Kit Skincare Ideal</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Lora", serif; /* Ajustando para Lora */
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+    .content {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    a {
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      display: inline-block;
+      font-size: 16px;
+    }
+    a:hover {
+      background-color: #0056b3;
+    }
+  </style>
+  <script>
+    function getQueryParams() {
+      const params = {};
+      const queryString = window.location.search.slice(1);
+      queryString.split('&').forEach(pair => {
+        const [key, value] = pair.split('=');
+        if (key && value) params[key] = decodeURIComponent(value);
+      });
+      return params;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = getQueryParams();
+
+      // Inicialização de variáveis padrão
+      let link = "https://www.bioage.com.br/default";
+      let background = "imagens/default.jpg";
+
+      // Condições baseadas nas escolhas do usuário
+      if (params.pele === "normal" && params.desafio === "rugas") {
+        link = "https://www.bioage.com.br/professional/cart/create?code=c6fe5c94d07342";
+        background = "imagens/fundo1.jpg";
+      } else if (params.pele === "normal" && params.desafio === "manchas") {
+        link = "https://www.bioage.com.br/professional/cart/create?code=ce024bba0a06f4";
+        background = "imagens/fundo2.jpg";
+      } else if (params.pele === "normal" && params.desafio === "textura") {
+        link = "https://www.bioage.com.br/professional/cart/create?code=c9177722052e73";
+        background = "imagens/fundo3.jpg";
+      } else if (params.pele === "normal" && params.desafio === "olheiras") {
+        link = "https://www.bioage.com.br/professional/cart/create?code=c099b95cfbc592";
+        background = "imagens/fundo4.jpg";
+      } else if (params.pele === "normal" && params.desafio === "manter") {
+        link = "https://www.bioage.com.br/professional/cart/create?code=cb488123148ae3";
+        background = "imagens/fundo5.jpg";
+      } else if (params.pele === "seca" && params.desafio === "rugas") {
+        link = "https://www.bioage.com.br/professional/cart/create?code=c27058bf5435c0";
+        background = "imagens/fundo6.jpg";
+      } else if (params.pele === "seca" && params.desafio === "manchas") {
+        link = "https://www.bioage.com.br/professional/cart/create?code=c576effffa9d44";
+        background = "imagens/fundo7.jpg";
+      } else if (params.pele === "seca" && params.desafio === "textura") {
+        link = "https://www.bioage.com.br/professional/cart/create?code=c82c339b452790";
+        background = "imagens/fundo8.jpg";
+      } else if (params.pele === "seca" && params.desafio === "olheiras") {
+        link = "https://www.bioage.com.br/professional/cart/create?code=c0da964a3bc0f3";
+        background = "imagens/fundo9.jpg";
+      } else if (params.pele === "seca" && params.desafio === "manter") {
+        link = "https://www.bioage.com.br/professional/cart/create?code=ca00d8b5b4709f";
+        background = "imagens/fundo10.jpg";
+      } else if (params.pele === "oleosa" && params.desafio === "acne") {
+        link = "https://www.bioage.com.br/professional/cart/create?code=c9c716fee63cf4";
+        background = "imagens/fundo12.jpg";
+      } else if (params.pele === "oleosa" && params.desafio === "oleosidade") {
+        link = "https://www.bioage.com.br/professional/cart/create?code=ca378940a8b552";
+        background = "imagens/fundo13.jpg";
+      } else if (params.pele === "oleosa" && params.desafio === "rugas") {
+        link = "https://www.bioage.com.br/professional/cart/create?code=cf96738128ecad";
+        background = "imagens/fundo13.jpg";
+      } else if (params.pele === "oleosa" && params.desafio === "poros") {
+        link = "https://www.bioage.com.br/professional/cart/create?code=caeea137bf61a5";
+        background = "imagens/fundo14.jpg";
+      } else if (params.pele === "oleosa" && params.desafio === "textura") {
+        link = "https://www.bioage.com.br/professional/cart/create?code=cef863bc962f6d";
+        background = "imagens/fundo15.jpg";
+      } else if (params.pele === "oleosa" && params.desafio === "olheiras") {
+        link = "https://www.bioage.com.br/professional/cart/create?code=cc52a91094d4a2";
+        background = "imagens/fundo16.jpg";
+      } else if (params.pele === "oleosa" && params.desafio === "manter") {
+        link = "https://www.bioage.com.br/professional/cart/create?code=cef5018b3aa123";
+        background = "imagens/fundo17.jpg";
+      }
+      // Continue adicionando outras condições conforme necessário...
+
+      // Define o fundo e o link no DOM
+      document.body.style.backgroundImage = `url('${background}')`;
+      document.getElementById("kitLink").href = link;
+    });
+  </script>
+</head>
+<body>
+  <div class="content">
+    <h1>Seu Kit Skincare Ideal</h1>
+    <p>
+      Ao acessar o link abaixo, será exibido um kit com os produtos mais indicados para o cuidado da sua pele em casa. Caso prefira, é possível remover os itens que não desejar e adquirir apenas os produtos de sua escolha.
+    </p>
+    <a id="kitLink" href="#" target="_blank">Ver meu Kit Skincare</a>
+  </div>
+</body>
+</html>
