@@ -8,52 +8,36 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: "Lora", serif;
+      font-family: Arial, sans-serif;
       background-color: black;
       color: white;
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       min-height: 100vh;
       text-align: center;
     }
-    .spinner {
-      border: 5px solid #f3f3f3;
-      border-top: 5px solid #007BFF;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      animation: spin 1s linear infinite;
-      margin-bottom: 20px;
-    }
-    @keyframes spin {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
-    }
+
     .message {
       font-size: 1.2rem;
+      color: #ffffff;
     }
   </style>
 </head>
 <body>
-  <div class="spinner"></div>
   <div class="message">Estamos desenvolvendo o Kit perfeito para sua rotina Skincare...</div>
   <script>
-    // Extraia os parâmetros da URL atual
+    // Extraia os parâmetros da URL
     const params = new URLSearchParams(window.location.search);
-    // Crie a URL para a página 8 com os mesmos parâmetros
     const urlPagina8 = `pagina8.html?${params.toString()}`;
 
-    // Após 4 segundos, redirecione para a página 8
+    // Após 4 segundos, redirecione para a próxima página
     setTimeout(() => {
       window.location.href = urlPagina8;
     }, 4000);
   </script>
 </body>
 </html>
+
 
