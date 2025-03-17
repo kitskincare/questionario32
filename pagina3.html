@@ -5,20 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Qual a sua idade?</title>
   <link rel="stylesheet" href="estilo.css">
+  <style>
+    .option {
+      margin-bottom: 20px; /* Aumentando o espaçamento */
+    }
+    .option input {
+      margin-right: 10px;
+    }
+  </style>
 </head>
 <body>
   <div class="content">
     <form action="pagina4.html" method="GET">
       <div class="question">Qual a sua idade?</div>
-      <div class="option"><input type="radio" name="idade" value="Menos de 18 anos" required> Menos de 18 anos</div>
-      <div class="option"><input type="radio" name="idade" value="18 a 24 anos"> 18 a 24 anos</div>
-      <div class="option"><input type="radio" name="idade" value="25 a 29 anos"> 25 a 29 anos</div>
-      <div class="option"><input type="radio" name="idade" value="30 a 39 anos"> 30 a 39 anos</div>
-      <div class="option"><input type="radio" name="idade" value="40 a 49 anos"> 40 a 49 anos</div>
-      <div class="option"><input type="radio" name="idade" value="50 a 59 anos"> 50 a 59 anos</div>
-      <div class="option"><input type="radio" name="idade" value="60 +"> 60 +</div>
+      <div class="option">
+        <input type="radio" name="idade" value="Menos de 18 anos" required>
+        <label>Menos de 18 anos</label>
+      </div>
+      <div class="option">
+        <input type="radio" name="idade" value="18 a 24 anos">
+        <label>18 a 24 anos</label>
+      </div>
+      <div class="option">
+        <input type="radio" name="idade" value="25 a 29 anos">
+        <label>25 a 29 anos</label>
+      </div>
+      <div class="option">
+        <input type="radio" name="idade" value="30 a 39 anos">
+        <label>30 a 39 anos</label>
+      </div>
+      <div class="option">
+        <input type="radio" name="idade" value="40 a 49 anos">
+        <label>40 a 49 anos</label>
+      </div>
+      <div class="option">
+        <input type="radio" name="idade" value="50 a 59 anos">
+        <label>50 a 59 anos</label>
+      </div>
+      <div class="option">
+        <input type="radio" name="idade" value="60 +">
+        <label>60 +</label>
+      </div>
       <button type="submit">Próximo</button>
     </form>
   </div>
 </body>
 </html>
+
