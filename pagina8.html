@@ -8,7 +8,7 @@
     body {
       margin: 0;
       padding: 0;
-      font-family: "Lora", serif; /* Ajustando para Lora */
+      font-family: "Lora", serif;
       background-size: cover;
       background-position: center;
       display: flex;
@@ -52,12 +52,10 @@
 
     document.addEventListener("DOMContentLoaded", () => {
       const params = getQueryParams();
+      let link = "";
+      let background = "";
 
-      // Inicialização de variáveis padrão
-      let link = "https://www.bioage.com.br/default";
-      let background = "imagens/default.jpg";
-
-      // Condições baseadas nas escolhas do usuário
+      // Corrigindo os links e fundos com base nos parâmetros passados
       if (params.pele === "normal" && params.desafio === "rugas") {
         link = "https://www.bioage.com.br/professional/cart/create?code=c6fe5c94d07342";
         background = "imagens/fundo1.jpg";
@@ -110,9 +108,9 @@
         link = "https://www.bioage.com.br/professional/cart/create?code=cef5018b3aa123";
         background = "imagens/fundo17.jpg";
       }
-      // Continue adicionando outras condições conforme necessário...
+      // Continue adicionando outras condições aqui...
 
-      // Define o fundo e o link no DOM
+      // Atualiza o fundo e o link na página
       document.body.style.backgroundImage = `url('${background}')`;
       document.getElementById("kitLink").href = link;
     });
