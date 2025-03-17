@@ -108,11 +108,15 @@
         link = "https://www.bioage.com.br/professional/cart/create?code=cef5018b3aa123";
         background = "imagens/fundo17.jpg";
       }
-      // Continue adicionando outras condições aqui...
+      // Outras condições podem ser adicionadas conforme necessário
 
-      // Atualiza o fundo e o link na página
-      document.body.style.backgroundImage = `url('${background}')`;
-      document.getElementById("kitLink").href = link;
+      // Atualiza o link e o fundo se uma combinação foi encontrada
+      if (link && background) {
+        document.body.style.backgroundImage = `url('${background}')`;
+        document.getElementById("kitLink").href = link;
+      } else {
+        document.getElementById("kitLink").textContent = "Não foi possível determinar o link do seu kit. Volte e complete o questionário.";
+      }
     });
   </script>
 </head>
@@ -126,3 +130,4 @@
   </div>
 </body>
 </html>
+
