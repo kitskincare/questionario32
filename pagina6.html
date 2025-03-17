@@ -4,50 +4,132 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Desafio da Pele</title>
-  <link rel="stylesheet" href="estilo.css">
   <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+    .content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 100%;
+    }
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
     .option {
       display: flex;
       align-items: center;
       margin-bottom: 20px;
     }
     .option img {
-      width: 50px; /* Define uma largura fixa */
-      height: auto; /* Mantém a proporção */
-      margin-right: 10px; /* Espaço entre a imagem e o campo de seleção */
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
     }
     .option label {
-      margin-left: 10px; /* Espaço entre o campo de seleção e o texto */
+      margin-left: 10px;
+    }
+    .button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      display: inline-block;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .button:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
 <body>
   <div class="content">
-    <form action="pagina7.html" method="GET">
-      <div class="question">Qual o desafio da sua pele?</div>
-      <div class="option">
-        <img src="imagens/imagem6.jpg" alt="Acne">
-        <input type="radio" name="desafio" value="Acne">
-        <label>Acne</label>
-      </div>
-      <div class="option">
-        <img src="imagens/imagem3.jpg" alt="Oleosidade / Excesso de brilho">
-        <input type="radio" name="desafio" value="Oleosidade / Excesso de brilho">
-        <label>Oleosidade / Excesso de brilho</label>
-      </div>
-      <div class="option">
-        <img src="imagens/imagem8.jpg" alt="Rugas / Linhas de expressão">
-        <input type="radio" name="desafio" value="Rugas / Linhas de expressão">
-        <label>Rugas / Linhas de expressão</label>
-      </div>
-      <div class="option">
-        <img src="imagens/imagem10.jpg" alt="Manchas escuras / Melasma">
-        <input type="radio" name="desafio" value="Manchas escuras / Melasma">
-        <label>Manchas escuras / Melasma</label>
-      </div>
-      <!-- Continue adicionando as outras opções -->
-      <button type="submit">Gerar Kit Skincare Ideal</button>
+    <h1>Qual o desafio da sua pele?</h1>
+    <form action="pagina7.html" method="GET" id="desafios-form">
+      <div id="options-container"></div>
+      <button type="submit" class="button">Gerar Kit Skincare Ideal</button>
     </form>
   </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const params = new URLSearchParams(window.location.search);
+      const pele = params.get("pele");
+
+      const desafiosPorPele = {
+        "Normal": [
+          { img: "imagens/imagem8.jpg", label: "Rugas / Linhas de expressão / Flacidez do rosto", value: "rugas" },
+          { img: "imagens/imagem10.jpg", label: "Manchas escuras / Melasma / Cicatrizes de acne", value: "manchas" },
+          { img: "imagens/imagem14.jpg", label: "Textura irregular", value: "textura" },
+          { img: "imagens/imagem15.jpg", label: "Olheiras / Bolsas abaixo dos olhos", value: "olheiras" },
+          { img: "imagens/imagem17.jpg", label: "Iniciar / Manter os cuidados com a pele", value: "manter" }
+        ],
+        "Seca": [
+          { img: "imagens/imagem8.jpg", label: "Rugas / Linhas de expressão / Flacidez do rosto", value: "rugas" },
+          { img: "imagens/imagem10.jpg", label: "Manchas escuras / Melasma / Cicatrizes de acne", value: "manchas" },
+          { img: "imagens/imagem12.jpg", label: "Ressecamento / descamação", value: "ressecamento" },
+          { img: "imagens/imagem14.jpg", label: "Textura irregular", value: "textura" },
+          { img: "imagens/imagem15.jpg", label: "Olheiras / Bolsas abaixo dos olhos", value: "olheiras" },
+          { img: "imagens/imagem17.jpg", label: "Iniciar / Manter os cuidados com a pele", value: "manter" }
+        ],
+        "Oleosa": [
+          { img: "imagens/imagem6.jpg", label: "Acne", value: "acne" },
+          { img: "imagens/imagem3.jpg", label: "Oleosidade / excesso de brilho", value: "oleosidade" },
+          { img: "imagens/imagem8.jpg", label: "Rugas / Linhas de expressão / Flacidez do rosto", value: "rugas" },
+          { img: "imagens/imagem10.jpg", label: "Manchas escuras / Melasma / Cicatrizes de acne", value: "manchas" },
+          { img: "imagens/imagem13.jpg", label: "Poros dilatados", value: "poros" },
+          { img: "imagens/imagem14.jpg", label: "Textura irregular", value: "textura" },
+          { img: "imagens/imagem15.jpg", label: "Olheiras / Bolsas abaixo dos olhos", value: "olheiras" },
+          { img: "imagens/imagem17.jpg", label: "Iniciar / Manter os cuidados com a pele", value: "manter" }
+        ],
+        "Mista": [
+          { img: "imagens/imagem3.jpg", label: "Oleosidade / excesso de brilho", value: "oleosidade" },
+          { img: "imagens/imagem8.jpg", label: "Rugas / Linhas de expressão / Flacidez do rosto", value: "rugas" },
+          { img: "imagens/imagem10.jpg", label: "Manchas escuras / Melasma / Cicatrizes de acne", value: "manchas" },
+          { img: "imagens/imagem13.jpg", label: "Poros dilatados", value: "poros" },
+          { img: "imagens/imagem14.jpg", label: "Textura irregular", value: "textura" },
+          { img: "imagens/imagem15.jpg", label: "Olheiras / Bolsas abaixo dos olhos", value: "olheiras" },
+          { img: "imagens/imagem17.jpg", label: "Iniciar / Manter os cuidados com a pele", value: "manter" }
+        ],
+        "Sensível": [
+          { img: "imagens/imagem8.jpg", label: "Rugas / Linhas de expressão / Flacidez do rosto", value: "rugas" },
+          { img: "imagens/imagem5.jpg", label: "Rosácea / Sensibilidade extrema / Irritação recorrente", value: "rosacea" },
+          { img: "imagens/imagem10.jpg", label: "Manchas escuras / Melasma / Cicatrizes de acne", value: "manchas" },
+          { img: "imagens/imagem13.jpg", label: "Poros dilatados", value: "poros" },
+          { img: "imagens/imagem14.jpg", label: "Textura irregular", value: "textura" },
+          { img: "imagens/imagem15.jpg", label: "Olheiras / Bolsas abaixo dos olhos", value: "olheiras" },
+          { img: "imagens/imagem17.jpg", label: "Iniciar / Manter os cuidados com a pele", value: "manter" }
+        ]
+      };
+
+      const desafios = desafiosPorPele[pele] || [];
+      const optionsContainer = document.getElementById("options-container");
+
+      desafios.forEach(desafio => {
+        const div = document.createElement("div");
+        div.className = "option";
+        div.innerHTML = `
+          <img src="${desafio.img}" alt="${desafio.label}">
+          <input type="radio" name="desafio" value="${desafio.value}" required>
+          <label>${desafio.label}</label>
+        `;
+        optionsContainer.appendChild(div);
+      });
+    });
+  </script>
 </body>
 </html>
