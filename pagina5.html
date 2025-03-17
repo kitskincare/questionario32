@@ -3,28 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Qual é o seu tipo de pele?</title>
-  <link rel="stylesheet" href="estilo.css">
+  <title>Qual o seu tipo de pele?</title>
   <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+    .content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 100%;
+    }
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
     .option {
       display: flex;
       align-items: center;
       margin-bottom: 20px;
     }
     .option img {
-      width: 50px; /* Ajustar conforme necessário */
-      height: auto;
-      margin-right: 10px; /* Espaço entre a imagem e o campo de seleção */
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
     }
     .option label {
-      margin-left: 10px; /* Espaço entre o campo de seleção e o texto */
+      margin-left: 10px;
+    }
+    .button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      display: inline-block;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .button:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
 <body>
   <div class="content">
+    <h1>Qual o seu tipo de pele?</h1>
     <form action="pagina6.html" method="GET">
-      <div class="question">Qual o seu tipo de pele?</div>
       <div class="option">
         <img src="imagens/imagem1.jpg" alt="Normal">
         <input type="radio" name="pele" value="Normal" required>
@@ -50,8 +86,9 @@
         <input type="radio" name="pele" value="Normal2">
         <label>Normal</label>
       </div>
-      <button type="submit">Próximo</button>
+      <button type="submit" class="button">Próximo</button>
     </form>
   </div>
 </body>
 </html>
+
