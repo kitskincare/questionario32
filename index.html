@@ -4,14 +4,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Início</title>
-  <!-- Adicionando Lora do Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="estilo.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Lora", serif;
+      background: url("imagens/fundo-inicio.jpg") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: #333;
+    }
+    .content {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 500px;
+    }
+    .content h1 {
+      font-size: 2.5rem;
+      color: #007BFF;
+      margin-bottom: 20px;
+    }
+    .content p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    .content button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .content button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
   <div class="content">
-    <h1>Qual a rotina de skincare ideal para a sua pele?</h1>
-    <p>Faça um teste agora, descubra seu tipo de pele e a rotina ideal para ela! É rapidinho.</p>
+    <h1>Bem-vindo ao Teste de Skincare</h1>
+    <p>Descubra sua rotina ideal de cuidados com a pele em poucos minutos. É fácil, rápido e ajudará você a encontrar os produtos perfeitos para o seu tipo de pele.</p>
     <form action="pagina2.html" method="GET">
       <button type="submit">Iniciar</button>
     </form>
