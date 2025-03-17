@@ -5,102 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Desafio da Pele</title>
   <link rel="stylesheet" href="estilo.css">
+  <style>
+    .option {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .option img {
+      width: 50px; /* Define uma largura fixa */
+      height: auto; /* Mantém a proporção */
+      margin-right: 10px; /* Espaço entre a imagem e o campo de seleção */
+    }
+    .option label {
+      margin-left: 10px; /* Espaço entre o campo de seleção e o texto */
+    }
+  </style>
 </head>
 <body>
   <div class="content">
     <form action="pagina7.html" method="GET">
       <div class="question">Qual o desafio da sua pele?</div>
-      <div id="options-container"></div>
+      <div class="option">
+        <img src="imagens/imagem6.jpg" alt="Acne">
+        <input type="radio" name="desafio" value="Acne">
+        <label>Acne</label>
+      </div>
+      <div class="option">
+        <img src="imagens/imagem3.jpg" alt="Oleosidade / Excesso de brilho">
+        <input type="radio" name="desafio" value="Oleosidade / Excesso de brilho">
+        <label>Oleosidade / Excesso de brilho</label>
+      </div>
+      <div class="option">
+        <img src="imagens/imagem8.jpg" alt="Rugas / Linhas de expressão">
+        <input type="radio" name="desafio" value="Rugas / Linhas de expressão">
+        <label>Rugas / Linhas de expressão</label>
+      </div>
+      <div class="option">
+        <img src="imagens/imagem10.jpg" alt="Manchas escuras / Melasma">
+        <input type="radio" name="desafio" value="Manchas escuras / Melasma">
+        <label>Manchas escuras / Melasma</label>
+      </div>
+      <!-- Continue adicionando as outras opções -->
       <button type="submit">Gerar Kit Skincare Ideal</button>
     </form>
   </div>
-  <script>
-    // Função para obter os parâmetros da URL
-    function getQueryParams() {
-      const params = {};
-      const queryString = window.location.search.slice(1);
-      queryString.split('&').forEach(pair => {
-        const [key, value] = pair.split('=');
-        if (key && value) params[key] = decodeURIComponent(value);
-      });
-      return params;
-    }
-
-    // Adicionar dinamicamente as opções
-    document.addEventListener("DOMContentLoaded", () => {
-      const params = getQueryParams();
-      const optionsContainer = document.getElementById("options-container");
-
-      // Limpar o container antes de adicionar
-      optionsContainer.innerHTML = "";
-
-      // Baseado no tipo de pele, adicionar as opções correspondentes
-      if (params.pele === "Normal") {
-        optionsContainer.innerHTML = `
-          <div class="option">
-            <img src="imagens/imagem8.jpg" alt="Rugas / Linhas de expressão / Flacidez do rosto">
-            <input type="radio" name="desafio" value="Rugas / Linhas de expressão / Flacidez do rosto">
-            <label>Rugas / Linhas de expressão / Flacidez do rosto</label>
-          </div>
-          <div class="option">
-            <img src="imagens/imagem10.jpg" alt="Manchas escuras / Melasma / Cicatrizes de acne">
-            <input type="radio" name="desafio" value="Manchas escuras / Melasma / Cicatrizes de acne">
-            <label>Manchas escuras / Melasma / Cicatrizes de acne</label>
-          </div>
-          <div class="option">
-            <img src="imagens/imagem14.jpg" alt="Textura irregular">
-            <input type="radio" name="desafio" value="Textura irregular">
-            <label>Textura irregular</label>
-          </div>
-          <div class="option">
-            <img src="imagens/imagem15.jpg" alt="Olheiras / Bolsas abaixo dos olhos">
-            <input type="radio" name="desafio" value="Olheiras / Bolsas abaixo dos olhos">
-            <label>Olheiras / Bolsas abaixo dos olhos</label>
-          </div>
-          <div class="option">
-            <img src="imagens/imagem17.jpg" alt="Iniciar / Manter os cuidados com a pele">
-            <input type="radio" name="desafio" value="Iniciar / Manter os cuidados com a pele">
-            <label>Iniciar / Manter os cuidados com a pele</label>
-          </div>
-        `;
-      } else if (params.pele === "Seca") {
-        optionsContainer.innerHTML = `
-          <div class="option">
-            <img src="imagens/imagem8.jpg" alt="Rugas / Linhas de expressão / Flacidez do rosto">
-            <input type="radio" name="desafio" value="Rugas / Linhas de expressão / Flacidez do rosto">
-            <label>Rugas / Linhas de expressão / Flacidez do rosto</label>
-          </div>
-          <div class="option">
-            <img src="imagens/imagem10.jpg" alt="Manchas escuras / Melasma / Cicatrizes de acne">
-            <input type="radio" name="desafio" value="Manchas escuras / Melasma / Cicatrizes de acne">
-            <label>Manchas escuras / Melasma / Cicatrizes de acne</label>
-          </div>
-          <div class="option">
-            <img src="imagens/imagem12.jpg" alt="Ressecamento / descamação">
-            <input type="radio" name="desafio" value="Ressecamento / descamação">
-            <label>Ressecamento / descamação</label>
-          </div>
-          <div class="option">
-            <img src="imagens/imagem14.jpg" alt="Textura irregular">
-            <input type="radio" name="desafio" value="Textura irregular">
-            <label>Textura irregular</label>
-          </div>
-          <div class="option">
-            <img src="imagens/imagem15.jpg" alt="Olheiras / Bolsas abaixo dos olhos">
-            <input type="radio" name="desafio" value="Olheiras / Bolsas abaixo dos olhos">
-            <label>Olheiras / Bolsas abaixo dos olhos</label>
-          </div>
-          <div class="option">
-            <img src="imagens/imagem17.jpg" alt="Iniciar / Manter os cuidados com a pele">
-            <input type="radio" name="desafio" value="Iniciar / Manter os cuidados com a pele">
-            <label>Iniciar / Manter os cuidados com a pele</label>
-          </div>
-        `;
-      }
-      // Continue com as outras condições para "Oleosa", "Mista" e "Sensível"
-    });
-  </script>
 </body>
 </html>
-
-
