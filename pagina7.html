@@ -44,9 +44,14 @@
   <div class="spinner"></div>
   <div class="message">Estamos desenvolvendo o Kit perfeito para sua rotina Skincare...</div>
   <script>
-    // Após 4 segundos, redireciona para a próxima página
+    // Extraia os parâmetros da URL atual
+    const params = new URLSearchParams(window.location.search);
+    // Crie a URL para a página 8 com os mesmos parâmetros
+    const urlPagina8 = `pagina8.html?${params.toString()}`;
+
+    // Após 4 segundos, redirecione para a página 8
     setTimeout(() => {
-      window.location.href = "pagina8.html";
+      window.location.href = urlPagina8;
     }, 4000);
   </script>
 </body>
