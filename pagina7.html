@@ -30,14 +30,26 @@
   <script>
     // Extraia os parâmetros da URL
     const params = new URLSearchParams(window.location.search);
-    const urlPagina8 = `pagina8.html?${params.toString()}`;
 
-    // Após 4 segundos, redirecione para a próxima página
-    setTimeout(() => {
-      window.location.href = urlPagina8;
-    }, 4000);
+    // Verifique se os parâmetros esperados estão presentes
+    const pele = params.get("pele");
+    const desafio = params.get("desafio");
+
+    if (pele && desafio) {
+      // Combine os parâmetros e construa a URL da próxima página
+      const urlPagina8 = `pagina8.html?pele=${pele}&desafio=${desafio}`;
+      // Após 4 segundos, redirecione para a próxima página
+      setTimeout(() => {
+        window.location.href = urlPagina8;
+      }, 4000);
+    } else {
+      // Se os parâmetros não estiverem presentes, mostre uma mensagem de erro
+      document.querySelector(".message").textContent =
+        "Erro: Parâmetros não encontrados. Volte e complete o questionário.";
+    }
   </script>
 </body>
 </html>
+
 
 
