@@ -39,71 +39,6 @@
       background-color: #0056b3;
     }
   </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // Obtém os parâmetros da URL
-      const params = new URLSearchParams(window.location.search);
-      const pele = params.get("pele");
-      const desafio = params.get("desafio");
-      
-      // Define os links e fundos com base nas combinações
-      const combinacoes = {
-        "normal:rugas": {
-          link: "https://www.bioage.com.br/professional/cart/create?code=c6fe5c94d07342",
-          fundo: "imagens/fundo1.jpg"
-        },
-        "normal:manchas": {
-          link: "https://www.bioage.com.br/professional/cart/create?code=ce024bba0a06f4",
-          fundo: "imagens/fundo2.jpg"
-        },
-        "normal:textura": {
-          link: "https://www.bioage.com.br/professional/cart/create?code=c9177722052e73",
-          fundo: "imagens/fundo3.jpg"
-        },
-        "normal:olheiras": {
-          link: "https://www.bioage.com.br/professional/cart/create?code=c099b95cfbc592",
-          fundo: "imagens/fundo4.jpg"
-        },
-        "normal:manter": {
-          link: "https://www.bioage.com.br/professional/cart/create?code=cb488123148ae3",
-          fundo: "imagens/fundo5.jpg"
-        },
-        "seca:rugas": {
-          link: "https://www.bioage.com.br/professional/cart/create?code=c27058bf5435c0",
-          fundo: "imagens/fundo6.jpg"
-        },
-        "seca:manchas": {
-          link: "https://www.bioage.com.br/professional/cart/create?code=c576effffa9d44",
-          fundo: "imagens/fundo7.jpg"
-        },
-        "seca:textura": {
-          link: "https://www.bioage.com.br/professional/cart/create?code=c82c339b452790",
-          fundo: "imagens/fundo8.jpg"
-        },
-        "seca:olheiras": {
-          link: "https://www.bioage.com.br/professional/cart/create?code=c0da964a3bc0f3",
-          fundo: "imagens/fundo9.jpg"
-        },
-        "seca:manter": {
-          link: "https://www.bioage.com.br/professional/cart/create?code=ca00d8b5b4709f",
-          fundo: "imagens/fundo10.jpg"
-        },
-        // Continua com todas as outras combinações...
-      };
-
-      // Identifica a combinação de pele e desafio
-      const combinacao = `${pele}:${desafio}`;
-      const resultado = combinacoes[combinacao];
-
-      // Exibe o link e o fundo caso a combinação seja encontrada
-      if (resultado) {
-        document.body.style.backgroundImage = `url('${resultado.fundo}')`;
-        document.getElementById("kitLink").href = resultado.link;
-      } else {
-        document.getElementById("kitLink").textContent = "Não foi possível determinar o link do seu kit. Volte e complete o questionário.";
-      }
-    });
-  </script>
 </head>
 <body>
   <div class="content">
@@ -113,7 +48,56 @@
     </p>
     <a id="kitLink" href="#" target="_blank">Ver meu Kit Skincare</a>
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Base URL constante
+      const baseUrl = "https://www.bioage.com.br/professional/cart/create?code=";
+
+      // Obtem os parâmetros da URL
+      const params = new URLSearchParams(window.location.search);
+      const pele = params.get("pele");
+      const desafio = params.get("desafio");
+
+      // Define os códigos finais e fundos com base nas combinações
+      const combinacoes = {
+        "normal:rugas": {
+          code: "c099b95cfbc592",
+          fundo: "imagens/fundo1.jpg"
+        },
+        "normal:manchas": {
+          code: "ce024bba0a06f4",
+          fundo: "imagens/fundo2.jpg"
+        },
+        "normal:textura": {
+          code: "c9177722052e73",
+          fundo: "imagens/fundo3.jpg"
+        },
+        "normal:olheiras": {
+          code: "c099b95cfbc592",
+          fundo: "imagens/fundo4.jpg"
+        },
+        "normal:manter": {
+          code: "cb488123148ae3",
+          fundo: "imagens/fundo5.jpg"
+        }
+        // Adicione todas as outras combinações aqui
+      };
+
+      // Determina a combinação atual e monta a URL final
+      const combinacao = `${pele}:${desafio}`;
+      const resultado = combinacoes[combinacao];
+
+      if (resultado) {
+        // Ajusta o link e o fundo
+        document.getElementById("kitLink").href = baseUrl + resultado.code;
+        document.body.style.backgroundImage = `url('${resultado.fundo}')`;
+      } else {
+        // Exibe mensagem de erro se a combinação não for encontrada
+        document.getElementById("kitLink").textContent = "Não foi possível determinar o link do seu kit. Volte e complete o questionário.";
+      }
+    });
+  </script>
 </body>
 </html>
-
 
