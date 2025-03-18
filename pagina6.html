@@ -61,15 +61,25 @@
   <div class="content">
     <h1>Qual o desafio da sua pele?</h1>
     <form action="pagina7.html" method="GET" id="desafios-form">
+      <!-- Campo oculto para enviar o parâmetro "pele" junto -->
+      <input type="hidden" name="pele" id="pele">
+
+      <!-- Contêiner para as opções -->
       <div id="options-container"></div>
+      
       <button type="submit" class="button">Gerar Kit Skincare Ideal</button>
     </form>
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      // Obtém o parâmetro "pele" da URL
       const params = new URLSearchParams(window.location.search);
       const pele = params.get("pele");
 
+      // Preenche o campo oculto do formulário com o valor de "pele"
+      document.getElementById("pele").value = pele;
+
+      // Define as opções de desafios com base na pele selecionada
       const desafiosPorPele = {
         "Normal": [
           { img: "imagens/imagem8.jpg", label: "Rugas / Linhas de expressão / Flacidez do rosto", value: "rugas" },
@@ -116,9 +126,11 @@
         ]
       };
 
+      // Pega os desafios baseados na pele escolhida
       const desafios = desafiosPorPele[pele] || [];
-      const optionsContainer = document.getElementById("options-container");
 
+      // Preenche o container de opções
+      const optionsContainer = document.getElementById("options-container");
       desafios.forEach(desafio => {
         const div = document.createElement("div");
         div.className = "option";
